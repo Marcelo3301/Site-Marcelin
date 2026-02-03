@@ -129,6 +129,7 @@ body {
 }
 
 /* garante que o conteúdo fique acima da luz */
+
 body > * {
   position: relative;
   z-index: 1;
@@ -270,4 +271,29 @@ footer {
   .sobre .grid {
     grid-template-columns: 1fr;
   }
+}   
+
+.slider {
+  max-width: 700px;
+  margin: 80px auto;
+  overflow: hidden;
 }
+
+.slides {
+  display: flex;
+  transition: transform 0.8s ease-in-out;
+}
+
+.slide {
+  min-width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.slide img {
+  width: 85%;
+  border-radius: 18px;
+  box-shadow: 0 0 35px rgba(160, 80, 255, 0.4);
+}
+
