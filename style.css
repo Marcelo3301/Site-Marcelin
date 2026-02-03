@@ -1,0 +1,273 @@
+:root {
+  --bg: #0b0a14;
+  --bg-soft: #131126;
+  --card: #19162f;
+  --text: #ffffff;
+  --muted: #b2addd;
+  --primary: #8b5cf6; /* ROXO PRINCIPAL */
+  --border: rgba(139, 92, 246, 0.18);
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background: radial-gradient(circle at top, #121622, var(--bg));
+  color: var(--text);
+  line-height: 1.6;
+}
+
+/* HERO */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.hero-content {
+  max-width: 900px;
+  text-align: center;
+}
+
+.badge {
+  display: inline-block;
+  padding: 6px 14px;
+  border-radius: 999px;
+  background: rgba(108, 255, 193, 0.15);
+  color: var(--primary);
+  font-size: 0.8rem;
+  margin-bottom: 20px;
+}
+
+.hero h1 {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  font-weight: 900;
+}
+
+.hero h2 {
+  font-size: clamp(1.2rem, 3vw, 1.6rem);
+  font-weight: 400;
+  color: var(--muted);
+  margin-top: 10px;
+}
+
+.hero p {
+  max-width: 600px;
+  margin: 25px auto;
+  color: var(--muted);
+}
+
+.hero-actions {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* BUTTONS */
+
+.btn {
+  padding: 14px 28px;
+  border-radius: 12px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+}
+
+/* EFEITO DE LUZ SEGUINDO O MOUSE */
+
+.mouse-light {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 600px;
+  height: 600px;
+  pointer-events: none;
+  background: radial-gradient(
+    circle,
+    rgba(139, 92, 246, 0.25) 0%,
+    rgba(139, 92, 246, 0.15) 20%,
+    rgba(139, 92, 246, 0.05) 40%,
+    transparent 70%
+  );
+  transform: translate(-50%, -50%);
+  filter: blur(60px);
+  z-index: 0;
+}
+
+/* EFEITO DE LUZ NOS CARDS */
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(
+    300px circle at var(--x) var(--y),
+    rgba(139, 92, 246, 0.25),
+    transparent 40%
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+/* garante que o conteúdo fique acima da luz */
+body > * {
+  position: relative;
+  z-index: 1;
+}
+
+.btn.primary {
+  background: var(--primary);
+  color: #000;
+}
+
+.btn.primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(139, 92, 246, 0.45);
+}
+
+.btn.outline {
+  border: 1px solid var(--border);
+  color: var(--text);
+  background: transparent;
+}
+
+.btn.outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+/* SECTIONS */
+
+main section {
+  padding: 100px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+h3 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+}
+
+/* SOBRE */
+
+.sobre .grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 40px;
+}
+
+.skills {
+  list-style: none;
+  display: grid;
+  gap: 12px;
+}
+
+.skills li {
+  padding: 14px 18px;
+  background: var(--card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  font-weight: 500;
+}
+
+/* PROJETOS */
+
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 25px;
+}
+
+.card {
+  background: var(--card);
+  border-radius: 20px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+  transition: all 0.35s ease;
+}
+
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.6);
+}
+
+.card img {
+  width: 100%;
+  display: block;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body span {
+  font-size: 0.75rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.card-body h4 {
+  margin: 8px 0;
+  font-size: 1.2rem;
+}
+
+.card-body p {
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* CONTATO */
+
+.contato {
+  text-align: center;
+}
+
+.contato p {
+  max-width: 500px;
+  margin: 0 auto 30px;
+  color: var(--muted);
+}
+
+.contato-links {
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+  flex-wrap: wrap;
+}
+
+/* FOOTER */
+
+footer {
+  padding: 30px;
+  text-align: center;
+  color: var(--muted);
+  border-top: 1px solid var(--border);
+}
+
+/* RESPONSIVO */
+
+@media (max-width: 768px) {
+  .sobre .grid {
+    grid-template-columns: 1fr;
+  }
+}

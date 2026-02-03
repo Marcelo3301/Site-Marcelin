@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Marcelin — Designer</title>
+  <link rel="icon" href="img/FERFIL.png" type="img/png">
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <header class="hero">
+    <div class="hero-content">
+      <span class="badge">Disponível para projetos</span>
+      <h1>Marcelin</h1>
+      <h2>Designer Digital & UI/UX</h2>
+      <p>Crio experiências visuais modernas, interfaces limpas e identidades fortes para projetos digitais e FiveM.</p>
+      <div class="hero-actions">
+        <a href="#projetos" class="btn primary">Ver projetos</a>
+        <a href="#contato" class="btn outline">Contato</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section id="sobre" class="sobre">
+      <div class="grid">
+        <div>
+          <h3>Sobre mim</h3>
+          <p>DSou designer digital focado na criação de identidades visuais modernas, interfaces intuitivas e artes com alto impacto visual. Atuo com design gráfico, UI/UX e criação de peças para redes sociais e projetos FiveM, sempre buscando unir estética, funcionalidade e personalidade em cada trabalho.</p>
+        </div>
+        <ul class="skills">
+          <li>UI / UX Design</li>
+          <li>Design Gráfico</li>
+          <li>FiveM Design</li>
+          <li>Social Media</li>
+        </ul>
+      </div>
+    </section>
+
+    <section id="projetos" class="projetos">
+      <h3>Projetos em destaque</h3>
+      <div class="cards">
+        <article class="card">
+          <img src="img/bc7df4180647875.650f3b8f1a698.png"Projeto FiveM">
+          <div class="card-body">
+            <span>Projeto</span>
+            <h4>Arte Publicitária Imobiliária</h4>
+            <p>Criação de arte promocional para o setor imobiliário, com foco em clareza visual, impacto e conversão para redes sociais.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="img/Chris MC.png" alt="UI Design">
+          <div class="card-body">
+            <span>UI/UX</span>
+            <h4>Projeto Visual Artístico</h4>
+            <p>Arte promocional desenvolvida para artista musical, unindo identidade visual, conceito artístico e estética contemporânea. O foco foi transmitir personalidade, emoção e presença visual forte para divulgação digital.</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <img src="img/GT86.png" alt="Social Media">
+          <div class="card-body">
+            <span>Design</span>
+            <h4>Arte Automotiva para Redes Sociais</h4>
+            <p>Criação de arte visual com foco em impacto, estética urbana e engajamento para divulgação automotiva nas redes sociais.</p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="contato" class="contato">
+      <h3>Vamos trabalhar juntos?</h3>
+      <p>Entre em contato comigo para projetos, parcerias ou orçamentos.</p>
+      <div class="contato-links">
+        <a href="mailto:marcelomedeiros1478@gmail.com" class="btn primary">Email</a>
+        <a href="https://www.instagram.com/m4rcelin_designer/" target="_blank" class="btn outline">Instagram</a>
+        <a href="https://www.behance.net/m4rcelo" target="_blank" class="btn outline">Behance</a>
+        <a href="https://discord.gg/ncUPztZ6SG" target="_blank" class="btn outline">Discord</a>
+      </div>
+    </section>
+  </main>
+
+   <div class="mouse-light"></div>
+
+<script>
+  const light = document.querySelector('.mouse-light');
+
+  let mouseX = 0, mouseY = 0;
+  let currentX = 0, currentY = 0;
+
+  document.addEventListener('mousemove', (e) => {
+    mouseX = e.clientX;
+    mouseY = e.clientY;
+  });
+
+  function animate() {
+    currentX += (mouseX - currentX) * 0.08;
+    currentY += (mouseY - currentY) * 0.08;
+
+    light.style.left = currentX + 'px';
+    light.style.top = currentY + 'px';
+
+    requestAnimationFrame(animate);
+  }
+
+  animate();
+</script>
+
+
+<script>
+  document.querySelectorAll('.card').forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+
+      card.style.setProperty('--x', `${x}px`);
+      card.style.setProperty('--y', `${y}px`);
+    });
+  });
+</script>
+
+
+  <footer>
+    <p>© 2026 • Marcelo — Designer Digital</p>
+  </footer>
+
+</body>
+</html>
